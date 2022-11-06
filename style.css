@@ -1,0 +1,152 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+
+  --primary-color-border-bg: #338AF3;
+  --second-color-border-bg: #202024;
+  --font-color: #E1E1E6;
+  --bg : url('./assets/bg-blue.svg')
+}
+
+body.green {
+  --primary-color-border-bg: #047C3F;
+  --second-color-border-bg: #1A1F1B;
+  --font-color: #E1E1E6;
+  --bg : url('./assets/bg-green.svg')
+}
+
+body.yellow {
+  --primary-color-border-bg: #F7DD43;
+  --second-color-border-bg: #1D1C19;
+  --font-color: #E1E1E6;
+  --bg : url('./assets/bg-yellow.svg')
+}
+
+body {
+  font-size: 1.6rem;
+
+  background-image: var(--bg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+body * {
+  font-family: 'Roboto', sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+#app {
+  max-width: fit-content;
+  margin: 5.2rem auto;
+  text-align: center;
+}
+
+header {
+  margin-bottom: 6.3rem;
+}
+
+#cards {
+  display: grid;
+  gap: 3.2rem;
+}
+
+.card {
+  width: 31.6rem;
+  height: fit-content;
+  padding: 3.2rem 2.3rem;
+  background: linear-gradient(0deg, var(--second-color-border-bg), var(--second-color-border-bg)),
+  linear-gradient(0deg, var(--primary-color-border-bg), var(--primary-color-border-bg));
+  
+
+  border-bottom: 3px solid var(--primary-color-border-bg);
+  border-radius: 6px;
+
+  opacity: 0;
+  animation: appear .3s forwards;
+}
+
+.card h2 {
+  font-weight: 700;
+  font-size: 2.4rem;
+  line-height: 3rem;
+  color: #F7DD43;
+
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  width: fit-content;
+  margin-inline: auto;
+  margin-bottom: 5.3rem;
+  padding: .8rem 1.6rem;
+
+  border: 1px solid var(--primary-color-border-bg);
+  border-radius: 6px;
+}
+
+.card h2,
+.card ul li strong,
+.card ul li img {
+  transition: .1s ease-in-out;
+}
+
+.card h2:hover,
+.card ul li strong:hover,
+.card ul li img:hover {
+  transform: scale(1.1);
+}
+
+.card h2 span {
+  font-weight: 700;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
+
+  color: var(--font-color);
+  text-transform: uppercase;
+}
+
+.card ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card ul li strong {
+  font-weight: 900;
+  font-size: 3.6rem;
+  line-height: 4.5rem;
+  
+  color: var(--font-color);
+}
+
+.card ul li + li {
+  margin-top: 2.4rem;
+  padding-top: 2.4rem;
+  border-top: 1px solid #323238;;
+}
+
+@keyframes appear {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+@media (min-width: 700px) {
+  #cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(316px, 1fr));
+  }
+}
